@@ -1,0 +1,30 @@
+let sprite: game.LedSprite = null
+input.onGesture(Gesture.TiltLeft, function () {
+    if (sprite.get(LedSpriteProperty.X) == 0) {
+    	
+    } else {
+        sprite.change(LedSpriteProperty.X, -1)
+    }
+})
+input.onGesture(Gesture.TiltRight, function () {
+    if (sprite.get(LedSpriteProperty.X) == 4) {
+    	
+    } else {
+        sprite.change(LedSpriteProperty.X, 1)
+    }
+})
+input.onGesture(Gesture.LogoUp, function () {
+    if (sprite.get(LedSpriteProperty.Y) == 4) {
+    	
+    } else {
+        sprite.change(LedSpriteProperty.Y, 1)
+    }
+})
+input.onGesture(Gesture.LogoDown, function () {
+    if (sprite.get(LedSpriteProperty.Y) == 0) {
+    	
+    } else {
+        sprite.change(LedSpriteProperty.Y, -1)
+    }
+})
+sprite = game.createSprite(2, 2)
