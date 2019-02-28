@@ -1,0 +1,102 @@
+let hold = 0
+let button = 0
+let sprite: game.LedSprite = null
+let change = 0
+input.onButtonPressed(Button.A, function () {
+    button = 1
+})
+input.onGesture(Gesture.Shake, function () {
+    change = Math.randomRange(0, 1)
+})
+input.onGesture(Gesture.TiltLeft, function () {
+    button = 0
+    hold = 0
+    if (change == 0) {
+        if (sprite.get(LedSpriteProperty.X) == 0) {
+        	
+        } else {
+            while (hold == 0 && button != 1) {
+                sprite.move(-1)
+                basic.pause(500)
+            }
+        }
+    } else {
+        basic.showLeds(`
+            . . # . .
+            . # . . .
+            # # # # #
+            . # . . .
+            . . # . .
+            `)
+    }
+})
+input.onGesture(Gesture.TiltRight, function () {
+    button = 0
+    hold = 1
+    if (change == 0) {
+        if (sprite.get(LedSpriteProperty.X) == 4) {
+        	
+        } else {
+            while (hold == 1 && button != 1) {
+                sprite.move(1)
+                basic.pause(500)
+            }
+        }
+    } else {
+        basic.showLeds(`
+            . . # . .
+            . . . # .
+            # # # # #
+            . . . # .
+            . . # . .
+            `)
+    }
+})
+input.onGesture(Gesture.LogoUp, function () {
+    button = 0
+    hold = 2
+    if (change == 0) {
+        if (sprite.get(LedSpriteProperty.Y) == 4) {
+        	
+        } else {
+            while (hold == 2 && button != 1) {
+                sprite.change(LedSpriteProperty.Y, 1)
+                basic.pause(500)
+            }
+        }
+    } else {
+        basic.showLeds(`
+            . . # . .
+            . . # . .
+            # . # . #
+            . # # # .
+            . . # . .
+            `)
+    }
+})
+input.onGesture(Gesture.LogoDown, function () {
+    button = 0
+    hold = 3
+    if (change == 0) {
+        if (sprite.get(LedSpriteProperty.Y) == 0) {
+        	
+        } else {
+            while (hold == 3 && button != 1) {
+                sprite.change(LedSpriteProperty.Y, -1)
+                basic.pause(500)
+            }
+        }
+    } else {
+        basic.showLeds(`
+            . . # . .
+            . # # # .
+            # . # . #
+            . . # . .
+            . . # . .
+            `)
+    }
+})
+sprite = game.createSprite(2, 2)
+basic.forever(function () {
+	
+})
