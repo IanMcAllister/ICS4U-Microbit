@@ -1,0 +1,55 @@
+let boop: game.LedSprite = null
+let _this = 0
+let sprite: game.LedSprite = null
+input.onGesture(Gesture.TiltRight, function () {
+    _this = 2
+    if (sprite.get(LedSpriteProperty.X) == 4) {
+    	
+    } else {
+        while (_this == 2) {
+            sprite.change(LedSpriteProperty.X, 1)
+            basic.pause(500)
+        }
+    }
+})
+input.onGesture(Gesture.TiltLeft, function () {
+    _this = 4
+    if (sprite.get(LedSpriteProperty.X) == 0) {
+    	
+    } else {
+        while (_this == 4) {
+            sprite.change(LedSpriteProperty.X, -1)
+            basic.pause(500)
+        }
+    }
+})
+input.onGesture(Gesture.LogoDown, function () {
+    _this = 1
+    if (sprite.get(LedSpriteProperty.Y) == 0) {
+    	
+    } else {
+        while (_this == 1) {
+            sprite.change(LedSpriteProperty.Y, -1)
+            basic.pause(500)
+        }
+    }
+})
+input.onGesture(Gesture.LogoUp, function () {
+    _this = 3
+    if (sprite.get(LedSpriteProperty.Y) == 4) {
+    	
+    } else {
+        while (_this == 3) {
+            sprite.change(LedSpriteProperty.Y, 1)
+            basic.pause(500)
+        }
+    }
+})
+sprite = game.createSprite(2, 2)
+boop = game.createSprite(Math.randomRange(0, 4), Math.randomRange(0, 4))
+basic.forever(function () {
+    if (sprite.get(LedSpriteProperty.X) == boop.get(LedSpriteProperty.X) && sprite.get(LedSpriteProperty.Y) == boop.get(LedSpriteProperty.Y)) {
+        boop.set(LedSpriteProperty.X, Math.randomRange(0, 4))
+        boop.set(LedSpriteProperty.Y, Math.randomRange(0, 4))
+    }
+})
